@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nagulan | Cloud Engineer Portfolio</title>
+<style>
+:root{--ink:#12263A;--paper:#F3F6F9;--panel:#FFFFFF;--line:#CBD5DF;--muted:#4B5F72;--accent:#2457D6;--onaccent:#FFFFFF}
+@media (prefers-color-scheme:dark){:root{--ink:#E6EDF4;--paper:#0F1B27;--panel:#16273A;--line:#2C4157;--muted:#9DB0C2;--accent:#7FA2FF;--onaccent:#0F1B27}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 "Segoe UI",system-ui,-apple-system,sans-serif}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;line-height:1.15;margin:0}
+nav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar{max-width:880px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font:700 1.15rem Georgia,serif;color:var(--ink);text-decoration:none}
+.links{display:flex;gap:18px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.links a{color:var(--muted);text-decoration:none;font-size:.95rem;padding:4px 0;border-bottom:2px solid transparent}
+.links a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+main{max-width:880px;margin:0 auto;padding:0 20px}
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+#about{padding-top:72px}
+h1{font-size:clamp(2.8rem,8vw,5rem);letter-spacing:-.02em}
+.role{font-size:1.25rem;color:var(--muted);margin:10px 0 24px}
+.lead{max-width:62ch;font-size:1.1rem}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:11px 20px;border:2px solid var(--accent);border-radius:6px;text-decoration:none;font-weight:600}
+.btn.primary{background:var(--accent);color:var(--onaccent)}
+h2{font-size:1.9rem;margin-bottom:22px}
+.item{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:20px 22px;margin-bottom:16px}
+.item h3{font-size:1.25rem;margin-bottom:6px}
+.item p{margin:6px 0 0;max-width:68ch}
+.phases{list-style:none;counter-reset:ph;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.phases li{counter-increment:ph;display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start}
+.phases li::before{content:counter(ph);width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--onaccent);font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.phases b{display:block}
+.phases span{color:var(--muted);font-size:.95rem}
+.when{color:var(--muted);font-size:.92rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:14px 0 0}
+.tags li{border:1px solid var(--line);border-radius:4px;padding:2px 10px;font-size:.88rem;color:var(--muted)}
+.contact{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.contact b{display:inline-block;min-width:92px}
+footer{max-width:880px;margin:0 auto;padding:28px 20px 48px;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){.links{gap:12px}.contact b{display:block}}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <div class="bar">
+    <a class="brand" href="#about">Nagulan</a>
+    <ul class="links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <section id="about">
+    <h1>Nagulan</h1>
+    <p class="role">Aspiring cloud engineer</p>
+    <p class="lead">I work as a Junior Cloud Infra Engineer at Tata Consultancy Services on the TPG Telecom project, handling user access management, access provisioning and Active Directory. I am moving into cloud engineering and building hands-on projects with AWS, Docker, Kubernetes, Linux and CI/CD.</p>
+    <div class="cta">
+      <a class="btn primary" href="#project">See my project</a>
+      <a class="btn" href="#contact">Contact me</a>
+    </div>
+  </section>
+
+  <section id="project">
+    <h2>Project</h2>
+    <article class="item">
+      <h3>CI/CD pipeline: GitHub to AWS with Docker and Kubernetes</h3>
+      <p>This page is the app. Every push to GitHub triggers a pipeline that builds a Docker image of this site, pushes it to Amazon ECR, and deploys it to AWS with no manual steps. I built it in six phases, starting simple on EC2 and ending on Kubernetes.</p>
+      <ol class="phases">
+        <li><div><b>Portfolio site + Dockerfile</b><span>Site runs in a container locally</span></div></li>
+        <li><div><b>GitHub Actions CI</b><span>Every push builds and tests the image</span></div></li>
+        <li><div><b>Push image to Amazon ECR</b><span>Versioned images stored in AWS</span></div></li>
+        <li><div><b>Deploy to EC2 with Docker</b><span>Live site on a public IP</span></div></li>
+        <li><div><b>CD: auto-deploy on push</b><span>Push code, site updates itself</span></div></li>
+        <li><div><b>Upgrade to Kubernetes (k3s on EC2 or EKS)</b><span>Self-healing, scalable deployment</span></div></li>
+      </ol>
+      <ul class="tags">
+        <li>Docker</li><li>GitHub Actions</li><li>Amazon ECR</li><li>Amazon EC2</li><li>Kubernetes</li><li>nginx</li>
+      </ul>
+      <p><a href="https://github.com/Nagulan9786">View the code on GitHub</a></p>
+    </article>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <!-- Replace the placeholders below with your real certifications. Copy an item block to add more. -->
+    <article class="item">
+      <h3>AWS Cloud Practitioner</h3>
+      <p class="when">AWS, 2026</p>
+    </article>
+    <article class="item">
+      <h3>Claude certification</h3>
+      <p class="when">Claude, 2026</p>
+    </article>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <article class="item">
+      <h3>B.E. in Mechatronics Engineering</h3>
+      <p>Sri Krishna College of Engineering and Technology</p>
+      <p class="when">Graduated 2025</p>
+    </article>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <!-- Replace the email and phone with your own details. -->
+    <ul class="contact">
+      <li><b>Email</b> <a href="mailto:nagulanuc@gmail.com">nagulanuc@gmail.com</a></li>
+      <li><b>Phone</b> <a href="tel:+919487680930">+91 9487680930</a></li>
+      <li><b>GitHub</b> <a href="https://github.com/Nagulan9786">github.com/Nagulan9786</a></li>
+      <li><b>Location</b> Chennai Tamil Nadu, India</li>
+    </ul>
+  </section>
+</main>
+
+<footer>Served by nginx in a Docker container on AWS. Version: <span>__APP_VERSION__</span></footer>
+</body>
+</html>
