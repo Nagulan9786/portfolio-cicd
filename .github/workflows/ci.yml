@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t portfolio:${{ github.sha }} --build-arg APP_VERSION=${{ github.sha }} .
+
+      - name: Run container
+        run: docker run -d -p 8080:80 --name portfolio portfolio:${{ github.sha }}
+
+      - name: Test the site
+        run: |
+          sleep 3
+          curl -fsS http://localhost:8080 -o page.html
+          grep "Nagulan" page.html
+          grep "${{ github.sha }}" page.html
+          ! grep "__APP_VERSION__" page.html
