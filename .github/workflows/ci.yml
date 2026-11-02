@@ -22,6 +22,6 @@ jobs:
         run: |
           sleep 3
           curl -fsS http://localhost:8080 -o page.html
-          grep "Banana" page.html
+          grep "Nagulan" page.html
           grep "${{ github.sha }}" page.html
           ! grep "__APP_VERSION__" page.html
